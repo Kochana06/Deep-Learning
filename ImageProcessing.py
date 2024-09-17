@@ -20,7 +20,7 @@ class_names = ['airplane','automobile','bird','cat','deer','dog','frog','horse',
 
 #visualizing the dataset
 
-plt.figure(figsize(10,10))
+plt.figure(figsize=(10,10))
 for i in range(25):
   plt.subplot(5,5,i+1)
   plt.xticks([])
@@ -32,7 +32,7 @@ for i in range(25):
 
 #creating sequential model
 
-model = models.Sequential([layers.con2D(32,(3,3),activation='relu',input_shape = (32,32,3)),
+model = models.Sequential([layers.Conv2D(32,(3,3),activation='relu',input_shape = (32,32,3)),
         layers.MaxPooling2D((2,2)),
         layers.Conv2D(64,(3,3),activation='relu'),
         layers.MaxPooling2D((2,2)),
@@ -64,7 +64,7 @@ print(f' test accuracy is:{test_acc}')
 
 #visualize the accuracy and loss values
 
-plt.figure(figsize(12,4))
+plt.figure(figsize=(12,4))
 plt.subplot(1,2,1)
 plt.plot(history.history['accuracy'], label='accuracy')
 plt.plot(history.history['val_accuracy'], label='val_accuracy')
@@ -76,7 +76,7 @@ plt.title('Training and Validation Accuracy')
 plt.grid()
 
 
-plt.subplot(1,2,1)
+plt.subplot(1,2,2)
 plt.plot(history.history['loss'], label='loss')
 plt.plot(history.history['val_loss'], label='val_loss')
 plt.xlabel('Epochs')
